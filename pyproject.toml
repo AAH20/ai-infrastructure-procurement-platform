@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ai-infrastructure-procurement-platform"
+version = "0.1.0"
+description = "Evidence-driven AI infrastructure RFP, GPU cloud TCO, and supplier evaluation"
+requires-python = ">=3.11"
+license = {text = "Apache-2.0"}
+authors = [{name = "Ahmed Hassan"}]
+keywords = ["AI infrastructure", "GPU cloud", "AI procurement", "NVIDIA", "Kubernetes", "LLM inference", "FinOps"]
+
+[project.scripts]
+aiip = "ai_infrastructure_procurement.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

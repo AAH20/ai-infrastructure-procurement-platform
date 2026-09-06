@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://a2zsoc.com/schemas/ai-infrastructure-rfp/0.1.0",
+  "title": "AI Infrastructure RFP Bundle",
+  "type": "object",
+  "required": ["rfp", "offers"],
+  "properties": {
+    "rfp": {"type": "object", "required": ["rfp_id", "monthly_requests", "requirements"]},
+    "offers": {"type": "array", "minItems": 1, "items": {"type": "object"}}
+  }
+}
+

@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata: {name: ai-infrastructure-procurement-evaluator}
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      securityContext: {runAsNonRoot: true, seccompProfile: {type: RuntimeDefault}}
+      containers:
+        - name: evaluator
+          image: ghcr.io/aah20/ai-infrastructure-procurement-platform:latest
+          args: ["examples/retail-ai-rfp.json", "--as-of", "2026-09-06"]
+          securityContext: {allowPrivilegeEscalation: false, readOnlyRootFilesystem: true, capabilities: {drop: ["ALL"]}}
+          resources:
+            requests: {cpu: 100m, memory: 128Mi}
+            limits: {cpu: 500m, memory: 512Mi}
+

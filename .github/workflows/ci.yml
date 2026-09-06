@@ -1,0 +1,16 @@
+name: ci
+on: [push, pull_request]
+permissions: {contents: read}
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: "3.12"}
+      - run: pip install -e .
+      - run: python -m unittest discover -s tests -v
+      - run: aiip examples/retail-ai-rfp.json --as-of 2026-09-06 --output procurement-decision.json
+      - uses: actions/upload-artifact@v4
+        with: {name: procurement-decision, path: procurement-decision.json}
+

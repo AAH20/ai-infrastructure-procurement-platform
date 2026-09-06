@@ -1,0 +1,80 @@
+{
+  "rfp": {
+    "rfp_id": "RFP-RETAIL-AI-001",
+    "workload": "customer-service-agent",
+    "monthly_requests": 5000000,
+    "revenue_per_success_usd": 0.02,
+    "monthly_revenue_at_risk_usd": 250000,
+    "contract_months": 24,
+    "requirements": {
+      "allowed_regions": ["uae-north", "uae-central"],
+      "max_p99_ttft_ms": 900,
+      "min_workflow_success_rate": 0.92,
+      "min_availability": 0.99,
+      "min_gpu_memory_gb": 40,
+      "max_evidence_age_months": 6,
+      "accepted_provenance": ["measured"],
+      "required_controls": ["workload-identity", "encryption-at-rest", "audit-logging", "customer-managed-key"]
+    }
+  },
+  "offers": [
+    {
+      "offer_id": "OFFER-AZURE-NIM",
+      "supplier": "Example Azure NVIDIA NIM MSP",
+      "region": "uae-north",
+      "runtime": "nvidia-nim",
+      "gpu_memory_gb": 80,
+      "p99_ttft_ms": 610,
+      "workflow_success_rate": 0.95,
+      "availability": 0.995,
+      "monthly_platform_usd": 7200,
+      "variable_cost_per_request_usd": 0.0002,
+      "monthly_support_usd": 2500,
+      "monthly_egress_usd": 400,
+      "migration_cost_usd": 18000,
+      "capacity_shortfall_probability": 0.005,
+      "supplier_failure_probability": 0.002,
+      "controls": ["workload-identity", "encryption-at-rest", "audit-logging", "customer-managed-key"],
+      "evidence": {"provenance": "measured", "observed_at": "2026-08-15T00:00:00Z", "digest": "sha256:example-azure-evidence"}
+    },
+    {
+      "offer_id": "OFFER-PRIVATE-VLLM",
+      "supplier": "Example Private vLLM Operator",
+      "region": "uae-north",
+      "runtime": "vllm",
+      "gpu_memory_gb": 48,
+      "p99_ttft_ms": 760,
+      "workflow_success_rate": 0.94,
+      "availability": 0.992,
+      "monthly_platform_usd": 5100,
+      "variable_cost_per_request_usd": 0.00015,
+      "monthly_support_usd": 3000,
+      "monthly_egress_usd": 100,
+      "migration_cost_usd": 28000,
+      "capacity_shortfall_probability": 0.01,
+      "supplier_failure_probability": 0.003,
+      "controls": ["workload-identity", "encryption-at-rest", "audit-logging", "customer-managed-key"],
+      "evidence": {"provenance": "measured", "observed_at": "2026-07-20T00:00:00Z", "digest": "sha256:example-private-evidence"}
+    },
+    {
+      "offer_id": "OFFER-CHEAP-US-SPOT",
+      "supplier": "Example Discount GPU Cloud",
+      "region": "us-east-1",
+      "runtime": "tensorrt-llm",
+      "gpu_memory_gb": 80,
+      "p99_ttft_ms": 480,
+      "workflow_success_rate": 0.96,
+      "availability": 0.97,
+      "monthly_platform_usd": 2800,
+      "variable_cost_per_request_usd": 0.0001,
+      "monthly_support_usd": 500,
+      "monthly_egress_usd": 900,
+      "migration_cost_usd": 8000,
+      "capacity_shortfall_probability": 0.04,
+      "supplier_failure_probability": 0.02,
+      "controls": ["encryption-at-rest", "audit-logging"],
+      "evidence": {"provenance": "modeled", "observed_at": "2025-01-01T00:00:00Z", "digest": "sha256:example-modeled-evidence"}
+    }
+  ]
+}
+
