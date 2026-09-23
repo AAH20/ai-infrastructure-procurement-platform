@@ -1,0 +1,28 @@
+{
+  "rfp_id": "RFP-RETAIL-AI-001",
+  "workload": "customer-service-agent",
+  "monthly_requests": 5000000,
+  "revenue_per_success_usd": 0.02,
+  "monthly_revenue_at_risk_usd": 250000,
+  "contract_months": 24,
+  "requirements": {
+    "allowed_regions": [
+      "uae-north",
+      "uae-central"
+    ],
+    "max_p99_ttft_ms": 900,
+    "min_workflow_success_rate": 0.92,
+    "min_availability": 0.99,
+    "min_gpu_memory_gb": 40,
+    "max_evidence_age_months": 6,
+    "accepted_provenance": [
+      "measured"
+    ],
+    "required_controls": [
+      "workload-identity",
+      "encryption-at-rest",
+      "audit-logging",
+      "customer-managed-key"
+    ]
+  }
+}

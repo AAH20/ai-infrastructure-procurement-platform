@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "rfp_id": "RFP-RETAIL-AI-001",
+  "offer": {
+    "offer_id": "OFFER-PRIVATE-VLLM",
+    "supplier": "Example Private vLLM Operator",
+    "region": "uae-north",
+    "runtime": "vllm",
+    "gpu_memory_gb": 48,
+    "p99_ttft_ms": 760,
+    "workflow_success_rate": 0.94,
+    "availability": 0.992,
+    "monthly_platform_usd": 5100,
+    "variable_cost_per_request_usd": 0.00015,
+    "monthly_support_usd": 3000,
+    "monthly_egress_usd": 100,
+    "migration_cost_usd": 28000,
+    "capacity_shortfall_probability": 0.01,
+    "supplier_failure_probability": 0.003,
+    "controls": [
+      "workload-identity",
+      "encryption-at-rest",
+      "audit-logging",
+      "customer-managed-key"
+    ],
+    "evidence": {
+      "provenance": "synthetic",
+      "observed_at": "2026-07-20T00:00:00Z",
+      "digest": "sha256:e319834e6ed524156a9dc71d7a582534bcf2d647c932cba1891ba55eb6d32091"
+    }
+  },
+  "benchmark": {
+    "rfp_digest": "a1882051c92b8e01c6a36f3361a60e43ff463ce740447f5d04b876e00d51513d",
+    "offer_id": "OFFER-PRIVATE-VLLM",
+    "supplier": "Example Private vLLM Operator",
+    "workload": "customer-service-agent",
+    "dataset_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+    "requests": 100,
+    "successful_workflows": 94,
+    "p99_ttft_ms": 760,
+    "workflow_success_rate": 0.94,
+    "availability": 0.992,
+    "gpu_memory_gb": 48,
+    "observed_at": "2026-07-20T00:00:00Z",
+    "provenance": "synthetic",
+    "region": "uae-north",
+    "runtime": "vllm"
+  }
+}

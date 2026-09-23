@@ -9,6 +9,8 @@ AI Infrastructure Procurement Platform converts workload requirements and suppli
 
 > The example contains fictional suppliers and modeled economics. The engine is advisory and never awards contracts. Authorized humans own procurement decisions.
 
+The [A2Z AI Capacity Exchange private RFQ pilot](docs/CAPACITY_EXCHANGE.md) adds separate supplier submissions, common-dataset benchmark binding, a private comparison command and a non-authorizing deployment handoff. The bundled bids remain fictional and synthetic; no supplier marketplace or live capacity transaction is claimed.
+
 ## Why this exists
 
 Engineering compares latency and throughput. Finance compares price. Security and GRC request controls. Procurement negotiates contracts. When those decisions are disconnected, the cheapest GPU offer can become the most expensive successful workflow. This project evaluates them within one disclosed decision boundary.
@@ -20,7 +22,7 @@ flowchart LR
   B[Buyer workload RFP] --> E[Eligibility gates]
   S1[GPU cloud offer] --> E
   S2[MSP / private cloud offer] --> E
-  V[Signed benchmark evidence] --> E
+  V[Benchmark evidence digest] --> E
   E --> T[Risk-adjusted TCO]
   T --> R[Ranked recommendation]
   R --> A[Acceptance criteria]
@@ -35,6 +37,7 @@ python3 -m venv .venv
 . .venv/bin/activate
 pip install -e .
 aiip examples/retail-ai-rfp.json --as-of 2026-09-06 --output procurement-decision.json
+aiip-exchange --rfp examples/exchange-synthetic/rfp.json --offers-dir examples/exchange-synthetic/offers --as-of 2026-09-24 --output /tmp/a2z-capacity-exchange.json
 python -m unittest discover -s tests -v
 ```
 
